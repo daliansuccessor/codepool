@@ -1,0 +1,18 @@
+User-agent: *
+Crawl-delay: 0
+
+Disallow: /?blackhole
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Disallow: /wp-includes/
+Disallow: /*/comment-page-*
+Disallow: /*?reply*
+Disallow: /*/trackback
+Disallow: /feed
+Disallow: /*/feed
+Disallow: /comments/feed
+Disallow: /?s=*
+Disallow: /*/?s=*\
+Disallow: /attachment/
+Disallow: /wp-login.php
+Disallow: /wp-settings.php

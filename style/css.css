@@ -1,0 +1,35 @@
+@charset "UTF-8";
+/* CSS Document */
+
+* {font-family: "Book Antiqua", "Palatino", "Source Han Sans TC", "Noto Sans CJK TC", "Hiragino Sans TC", "Hiragino Sans GB", "Hiragino Sans", "PMingLiU", "MingLiU", "Microsoft JhengHei", "Microsoft YaHei", "STXihei", "sans-serif" !important;}
+
+@media screen and (min-width: 900px) { 
+ 	html,body,td,th,header,content {color: #000000; margin:auto; -webkit-text-size-adjust:100%;}
+	body {font-size: 16px; margin-left: 200px; margin-top: 100px; width:700px; -webkit-text-size-adjust:100%;}
+  	h1 {font-size:26px; font-weight:bold; line-height:40px; margin-bottom:55px; -webkit-text-size-adjust:100%;}
+  	h2 {font-size:18px; font-weight:bold; margin-bottom:15px; line-height: 27px; color:#000000; -webkit-text-size-adjust:100%;}
+  	p { margin-bottom:15px; line-height: 25px; color:#000000; }
+  	date {font-size:10px; margin-bottom:0px; margin-top:0px; color:#686868;}
+  	li {line-height: 23px; list-style-type:none;}
+  	.copyright {font-size:13px; color:#000000;}
+} 
+
+@media screen and (max-width: 900px) { 
+ 	html,body,td,th,header,content {color:#000000; max-width:95%; margin:auto; -webkit-text-size-adjust:100%;}
+	body {font-size:18px; margin-top: 40px; -webkit-text-size-adjust:100%;}
+  	h1 {font-size:26px; font-weight:bold; line-height:40px; margin-bottom:35px; -webkit-text-size-adjust:100%;}
+  	h2 {font-size:22px; font-weight:bold; margin-bottom:15px; line-height: 30px; color:#000000; -webkit-text-size-adjust:100%;}
+ 	p { margin-bottom:18px; line-height: 28px; color:#000000; }
+  	date {font-size:11px; margin-bottom:0px; margin-top:0px; color:#686868;}
+  	li {line-height: 26px; list-style-type:none;}
+   	.copyright {font-size:15px; color:#000000; }
+} 
+
+	header {max-width:700px; font-size:30px; font-weight:bold; line-height:45px; margin-bottom:30px; -webkit-text-size-adjust:100%;}
+	img {max-width:95%;}
+	embed {width: 95%;}
+	a:link { text-decoration: none; color:#000000; }
+	a:active { text-decoration:blink; color:#000000; }
+	a:hover { text-decoration:underline; color:#000000; }
+	a:visited { text-decoration: none; color:#000000; }
+

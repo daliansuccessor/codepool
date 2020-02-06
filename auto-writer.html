@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh" xml:lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+  <meta name="description" content="自动作文生成器">
+  <link href="style/css.css" rel="stylesheet" type="text/css" />
+  <title>自动作文生成器</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $("input[name='item']").change(function() {
+        var checkeditems = $("input[name='item']:checked");
+        var items = [];
+        for (var i = 0; i < checkeditems.length; i++) {
+          if (i == checkeditems.length - 1) {
+            items.push(checkeditems[i].value + "。");
+          } else {
+            items.push(checkeditems[i].value + "，");
+          }
+        }
+        $("#itemlist").val(items.join(""));
+      });
+      $("#copyBtn").click(function() {
+        var copyText = document.getElementById("itemlist");
+        copyText.select();
+        document.execCommand("Copy");
+        alert("文章已复制：" + copyText.value);
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <header>自动作文系统</header>
+  <content>
+    <p>
+      <b>只要选择你想要描写的景物，即可自动生成文章！</b><br>
+      <input type="checkbox" name="item" value="今天的天空万里无云，风和日丽"> 天空<br>
+      <input type="checkbox" name="item" value="小朋友们快乐地走出大门"> 出门<br>
+      <input type="checkbox" name="item" value="大家闭到阵阵香气，看到花团锦簇"> 花朵<br>
+      <input type="checkbox" name="item" value="一时间心情都晴朗了起来"> 心情<br>
+      <input type="checkbox" name="item" value="大家笑得小脸红扑扑的，真可爱"> 可爱<br>
+      <br><br>
+      <textarea id="itemlist" style="min-height:100px;min-width: 400px;"></textarea><br>
+      <input type="button" id="copyBtn" value="点此复制文章" />
+    </p>
+  </content>
+</body>
+
+</html>

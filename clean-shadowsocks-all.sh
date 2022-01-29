@@ -37,15 +37,15 @@ shadowsocks_python_file='shadowsocks-master'
 shadowsocks_python_url='https://github.com/shadowsocks/shadowsocks/archive/master.zip'
 shadowsocks_python_init='/etc/init.d/shadowsocks-python'
 shadowsocks_python_config='/etc/shadowsocks-python/config.json'
-shadowsocks_python_centos='https://raw.githubusercontent.com/lunfansuo/codepool/master/shadowsocks'
-shadowsocks_python_debian='https://raw.githubusercontent.com/lunfansuo/codepool/master/shadowsocks-debian'
+shadowsocks_python_centos='https://raw.githubusercontent.com/koreansuccessor/codepool/master/shadowsocks'
+shadowsocks_python_debian='https://raw.githubusercontent.com/koreansuccessor/codepool/master/shadowsocks-debian'
 
 shadowsocks_r_file='shadowsocksr-3.2.2'
 shadowsocks_r_url='https://github.com/shadowsocksrr/shadowsocksr/archive/3.2.2.tar.gz'
 shadowsocks_r_init='/etc/init.d/shadowsocks-r'
 shadowsocks_r_config='/etc/shadowsocks-r/config.json'
-shadowsocks_r_centos='https://raw.githubusercontent.com/lunfansuo/codepool/master/shadowsocksR'
-shadowsocks_r_debian='https://raw.githubusercontent.com/lunfansuo/codepool/master/shadowsocksR-debian'
+shadowsocks_r_centos='https://raw.githubusercontent.com/koreansuccessor/codepool/master/shadowsocksR'
+shadowsocks_r_debian='https://raw.githubusercontent.com/koreansuccessor/codepool/master/shadowsocksR-debian'
 
 shadowsocks_go_file_64='shadowsocks-server-linux64-1.2.2'
 shadowsocks_go_url_64='https://dl.lamp.sh/shadowsocks/shadowsocks-server-linux64-1.2.2.gz'
@@ -53,13 +53,13 @@ shadowsocks_go_file_32='shadowsocks-server-linux32-1.2.2'
 shadowsocks_go_url_32='https://dl.lamp.sh/shadowsocks/shadowsocks-server-linux32-1.2.2.gz'
 shadowsocks_go_init='/etc/init.d/shadowsocks-go'
 shadowsocks_go_config='/etc/shadowsocks-go/config.json'
-shadowsocks_go_centos='https://raw.githubusercontent.com/lunfansuo/codepool/master/shadowsocks-go'
-shadowsocks_go_debian='https://raw.githubusercontent.com/lunfansuo/codepool/master/shadowsocks-go-debian'
+shadowsocks_go_centos='https://raw.githubusercontent.com/koreansuccessor/codepool/master/shadowsocks-go'
+shadowsocks_go_debian='https://raw.githubusercontent.com/koreansuccessor/codepool/master/shadowsocks-go-debian'
 
 shadowsocks_libev_init='/etc/init.d/shadowsocks-libev'
 shadowsocks_libev_config='/etc/shadowsocks-libev/config.json'
-shadowsocks_libev_centos='https://raw.githubusercontent.com/lunfansuo/codepool/master/shadowsocks-libev'
-shadowsocks_libev_debian='https://raw.githubusercontent.com/lunfansuo/codepool/master/shadowsocks-libev-debian'
+shadowsocks_libev_centos='https://raw.githubusercontent.com/koreansuccessor/codepool/master/shadowsocks-libev'
+shadowsocks_libev_debian='https://raw.githubusercontent.com/koreansuccessor/codepool/master/shadowsocks-libev-debian'
 
 # Stream Ciphers
 common_ciphers=(
@@ -114,7 +114,6 @@ rc4-md5
 )
 # Reference URL:
 # https://github.com/shadowsocksr-rm/shadowsocks-rss/blob/master/ssr.md
-# https://github.com/shadowsocksrr/shadowsocksr/commit/a3cf0254508992b7126ab1151df0c2f10bf82680
 # Protocol
 protocols=(
 origin

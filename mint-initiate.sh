@@ -3,14 +3,14 @@
 sudo apt update -y
 sudo apt install preload tlp -y
 sudo apt purge hexchat gnote drawing simple-scan transmission-gtk hypnotix mintwelcome ibus -y
-sudo apt install fcitx fcitx-rime
+sudo apt install fcitx fcitx-rime -y
 sudo apt-get upgrade -y
 sudo tee /etc/systemd/logind.conf <<<'KillUserProcesses=yes'
 sudo tee /etc/modprobe.d/snd-hda-intel.conf <<<'options snd-hda-intel power_save=0'
 sudo tee /etc/modprobe.d/modprobe.conf <<<'options snd-hda-intel model=,generic'
 sudo sh -c 'echo 0 > /sys/module/snd_hda_intel/parameters/power_save'
 sudo sh -c 'echo N > /sys/module/snd_hda_intel/parameters/power_save_controller'
-sudo apt install nscd
+sudo apt install nscd -y
 sudo systemctl enable nscd
 sudo systemctl start nscd
 sudo touch /etc/apt/trusted.gpg 

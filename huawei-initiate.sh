@@ -7,6 +7,7 @@ adb shell pm uninstall --user 0 com.google.android.gms
 adb shell pm uninstall --user 0 com.android.stk
 adb shell pm uninstall --user 0 com.sina.weibo
 adb shell pm uninstall --user 0 com.huawei.hidisk
+adb shell pm uninstall --user 0 com.huawei.arengine.service
 adb shell pm uninstall --user 0 com.huawei.gameassistant
 adb shell pm uninstall --user 0 com.huawei.android.findmyphone
 adb shell pm uninstall --user 0 com.google.ar.core

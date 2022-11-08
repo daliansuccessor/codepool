@@ -32,6 +32,8 @@ adb shell pm uninstall --user 0 com.huawei.gamebox
 adb shell pm uninstall --user 0 com.huawei.hwireader
 adb shell pm uninstall --user 0 com.huawei.hiskytone
 adb shell pm uninstall --user 0 com.google.android.backuptransport
+adb shell pm uninstall --user 0 com.google.android.printservice.recommendation
+adb shell pm uninstall --user 0 com.google.android.overlay.gmsconfig
 adb shell pm uninstall --user 0 com.android.vending
 adb shell pm uninstall --user 0 com.google.android.partnersetup
 adb shell pm uninstall --user 0 com.andeoid.wallpaper.livepicker

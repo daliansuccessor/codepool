@@ -1,5 +1,10 @@
 #!/bin/bash
 
+apt install git 
+git clone git://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git 
+sudo cp -v -u linux-firmware/amdgpu/* /lib/firmware/amdgpu 
+sudo update-initramfs -uk all
+
 sudo apt update -y
 sudo apt install preload tlp -y
 sudo apt purge hexchat gnote drawing simple-scan transmission-gtk hypnotix mintwelcome ibus -y

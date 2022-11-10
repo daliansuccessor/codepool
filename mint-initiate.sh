@@ -3,7 +3,7 @@
 apt install git 
 git clone https://kernel.googlesource.com/pub/scm/linux/kernel/git/firmware/linux-firmware
 sudo cp -v -u linux-firmware/amdgpu/* /lib/firmware/amdgpu 
-sudo update-initramfs -uk all
+sudo update-initramfs -k all -u -v
 
 sudo apt update -y
 sudo apt install preload tlp -y

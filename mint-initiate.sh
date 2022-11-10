@@ -1,7 +1,7 @@
 #!/bin/bash
 
 apt install git 
-git clone git://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git 
+git clone https://kernel.googlesource.com/pub/scm/linux/kernel/git/firmware/linux-firmware
 sudo cp -v -u linux-firmware/amdgpu/* /lib/firmware/amdgpu 
 sudo update-initramfs -uk all
 

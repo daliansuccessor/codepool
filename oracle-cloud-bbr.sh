@@ -1,3 +1,5 @@
+#!/bin/bash
+
 lsmod | grep bbr
 sudo modprobe tcp_bbr
 echo "tcp_bbr" | sudo tee --append /etc/modules-load.d/modules.conf

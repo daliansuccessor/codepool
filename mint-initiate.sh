@@ -6,7 +6,7 @@ sudo cp -v -u linux-firmware/amdgpu/* /lib/firmware/amdgpu
 sudo update-initramfs -k all -u -v
 
 sudo apt update -y
-sudo apt install preload tlp -y
+sudo apt install preload -y
 sudo apt purge hexchat gnote drawing simple-scan transmission-gtk hypnotix mintwelcome ibus -y
 sudo apt install fcitx fcitx-rime -y
 sudo apt-get upgrade -y

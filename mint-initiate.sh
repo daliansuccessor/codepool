@@ -5,7 +5,7 @@ git clone https://kernel.googlesource.com/pub/scm/linux/kernel/git/firmware/linu
 sudo cp -v -u linux-firmware/amdgpu/* /lib/firmware/amdgpu 
 sudo update-initramfs -k all -u -v
 
-sudo find -name '/etc/default/grub' | xargs perl -pi -e 's|GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"|GRUB_CMDLINE_LINUX_DEFAULT="quiet splash snd_hda_intel.dmic_detect=0"|g'
+sudo find -wholename '/etc/default/grub' | xargs perl -pi -e 's|GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"|GRUB_CMDLINE_LINUX_DEFAULT="quiet splash snd_hda_intel.dmic_detect=0"|g'
 
 sudo apt update -y
 sudo apt install preload -y

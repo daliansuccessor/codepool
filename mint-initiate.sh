@@ -9,6 +9,12 @@ sudo apt-get remove --purge alsa-base pulseaudio -y
 sudo apt-get install alsa-base pulseaudio pavucontrol -y
 sudo alsa force-reload -y
 
+sudo apt-get update
+sudo apt-get upgrade
+sudo add-apt-repository ppa:mikhailnov/pulseeffects
+sudo apt-get update
+sudo apt-get install pulseeffects
+
 sudo find -wholename '/etc/default/grub' | xargs perl -pi -e 's|GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"|GRUB_CMDLINE_LINUX_DEFAULT="quiet splash snd_hda_intel.dmic_detect=0"|g'
 
 sudo apt update -y

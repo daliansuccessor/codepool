@@ -5,15 +5,15 @@ git clone https://kernel.googlesource.com/pub/scm/linux/kernel/git/firmware/linu
 sudo cp -v -u linux-firmware/amdgpu/* /lib/firmware/amdgpu 
 sudo update-initramfs -k all -u -v
 
+sudo apt-get update
+sudo apt-get upgrade
+
 sudo apt-get remove --purge alsa-base pulseaudio -y
 sudo apt-get install alsa-base pulseaudio pavucontrol -y
 sudo alsa force-reload -y
 
-sudo apt-get update
-sudo apt-get upgrade
-sudo add-apt-repository ppa:mikhailnov/pulseeffects
-sudo apt-get update
-sudo apt-get install pulseeffects
+sudo mv ~/.config/pulse ~/.config/pulse.old
+sudo pulseaudio --start
 
 sudo find -wholename '/etc/default/grub' | xargs perl -pi -e 's|GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"|GRUB_CMDLINE_LINUX_DEFAULT="quiet splash snd_hda_intel.dmic_detect=0"|g'
 

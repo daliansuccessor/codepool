@@ -30,9 +30,9 @@ sudo sh -c 'echo N > /sys/module/snd_hda_intel/parameters/power_save_controller'
 sudo apt install nscd -y
 sudo systemctl enable nscd
 sudo systemctl start nscd
-sudo touch /etc/apt/trusted.gpg 
-sudo apt-get install ubuntu-restricted-addons -y 
-sudo apt-get install ubuntu-restricted-extras -y 
+sudo touch /etc/apt/trusted.gpg
+sudo apt-get install ubuntu-restricted-addons -y
+sudo apt-get install ubuntu-restricted-extras -y
 sudo apt install resolvconf wireguard-dkms wireguard-tools
 sudo apt-get install alsa-utils alsa-tools alsa-tools-gui alsamixergui -y
 sudo swapoff -a

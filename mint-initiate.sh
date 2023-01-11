@@ -37,7 +37,7 @@ sudo apt install resolvconf wireguard-dkms wireguard-tools
 sudo apt-get install alsa-utils alsa-tools alsa-tools-gui alsamixergui -y
 sudo swapoff -a
 sudo rm -rf /swapfile
-sudo echo 'vm.swappiness = 0' >> /etc/sysctl.conf
+sudo echo 'vm.swappiness = 10' >> /etc/sysctl.conf
 sudo echo 0 > /proc/sys/vm/swappiness
 sudo apt --fix-broken install
 sudo apt update -y

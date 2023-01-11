@@ -8,19 +8,12 @@ sudo update-initramfs -k all -u -v
 sudo apt-get update
 sudo apt-get upgrade
 
-sudo apt-get remove --purge alsa-base pulseaudio -y
-sudo apt-get install alsa-base pulseaudio pavucontrol -y
-sudo alsa force-reload -y
-
-sudo mv ~/.config/pulse ~/.config/pulse.old
-sudo pulseaudio --start
-
 sudo find -wholename '/etc/default/grub' | xargs perl -pi -e 's|GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"|GRUB_CMDLINE_LINUX_DEFAULT="quiet splash snd_hda_intel.dmic_detect=0"|g'
 
 sudo apt update -y
 sudo apt install preload -y
 sudo apt purge hexchat gnote drawing simple-scan transmission-gtk hypnotix mintwelcome ibus -y
-sudo apt install fcitx fcitx-rime -y
+sudo apt install fcitx fcitx-rime opencc -y
 sudo apt-get upgrade -y
 sudo tee /etc/systemd/logind.conf <<<'KillUserProcesses=yes'
 sudo tee /etc/modprobe.d/snd-hda-intel.conf <<<'options snd-hda-intel power_save=0'

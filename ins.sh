@@ -460,6 +460,14 @@ function main() {
     optimize_sysctl
     configure_journald
     configure_open_file_limits
+    checkVirt
+    checkOS
+    getHomeDirForClient
+    initialCheck
+    installQuestions
+    installWireGuard
+    newClient
+    enable_ip_forwarding
     configure_iptables
     configure_fq_pie
     configure_firewall

@@ -458,8 +458,6 @@ function main() {
     optimize_tcp
     enable_haveged
     optimize_sysctl
-    configure_journald
-    configure_open_file_limits
     checkVirt
     checkOS
     getHomeDirForClient
@@ -468,9 +466,11 @@ function main() {
     installWireGuard
     newClient
     enable_ip_forwarding
+    configure_firewall
     configure_iptables
     configure_fq_pie
-    configure_firewall
+    configure_journald
+    configure_open_file_limits
     optimize_tcp_settings
     reboot_server
 }

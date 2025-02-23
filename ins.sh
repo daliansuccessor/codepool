@@ -35,6 +35,14 @@ function enable_nscd() {
     systemctl enable nscd && systemctl start nscd
 }
 
+# 安装 WireGuard 使用指定脚本
+function install_wireguard() {
+    echo "通过指定脚本安装 WireGuard..."
+    wget https://raw.githubusercontent.com/distributorship/codepool/refs/heads/master/wireguard-install.sh -O /tmp/wireguard-install.sh
+    chmod +x /tmp/wireguard-install.sh
+    bash /tmp/wireguard-install.sh
+}
+
 # 配置 iptables 优化 TCP 性能
 function optimize_tcp() {
     echo "优化 TCP 性能..."
@@ -133,6 +141,34 @@ function configure_fq_pie() {
     done
 }
 
+# 配置系统日志限制
+function configure_journald() {
+    echo "配置系统日志限制..."
+    cat > /etc/systemd/journald.conf <<EOF
+[Journal]
+SystemMaxUse=384M
+SystemMaxFileSize=128M
+ForwardToSyslog=no
+EOF
+    systemctl restart systemd-journald
+}
+
+# 配置打开文件描述符限制
+function configure_open_file_limits() {
+    echo "配置打开文件描述符限制..."
+    cat > /etc/security/limits.conf <<EOF
+* soft nofile 512000
+* hard nofile 512000
+* soft nproc 512000
+* hard nproc 512000
+root soft nofile 512000
+root hard nofile 512000
+root soft nproc 512000
+root hard nproc 512000
+EOF
+    source /etc/security/limits.conf
+}
+
 # 新增 TCP 优化功能
 function optimize_tcp_settings() {
     echo "优化 TCP 设置..."
@@ -159,6 +195,8 @@ function main() {
     configure_firewall
     configure_iptables
     configure_fq_pie
+    configure_journald
+    configure_open_file_limits
     optimize_tcp_settings
     reboot_server
 }

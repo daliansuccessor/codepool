@@ -20,7 +20,8 @@ function update_system() {
 # 安装必要的软件包
 function install_dependencies() {
     echo "安装必要的软件包..."
-    apt install -y indicator-cpufreq iptables haveged nscd qrencode nginx
+    apt install -y cpufrequtils iptables haveged nscd qrencode nginx
+    sudo cpufreq-set -r -g performance
 }
 
 # 设置时区

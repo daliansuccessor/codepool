@@ -192,30 +192,13 @@ function installQuestions() {
 		read -rp "Public interface: " -e -i "${SERVER_NIC}" SERVER_PUB_NIC
 	done
 
-	until [[ ${SERVER_WG_NIC} =~ ^[a-zA-Z0-9_]+$ && ${#SERVER_WG_NIC} -lt 16 ]]; do
-		read -rp "WireGuard interface name: " -e -i wg0 SERVER_WG_NIC
-	done
-
-	until [[ ${SERVER_WG_IPV4} =~ ^([0-9]{1,3}\.){3} ]]; do
-		read -rp "Server WireGuard IPv4: " -e -i 172.16.0.1 SERVER_WG_IPV4
-	done
-
-	until [[ ${SERVER_WG_IPV6} =~ ^([a-f0-9]{1,4}:){3,4}: ]]; do
-		read -rp "Server WireGuard IPv6: " -e -i fd42:42:42::1 SERVER_WG_IPV6
-	done
-
-	until [[ ${SERVER_PORT} =~ ^[0-9]+$ ]]; do
-		read -rp "Server WireGuard port: " -e -i 9999 SERVER_PORT
-	done
-
-	until [[ ${CLIENT_DNS_1} =~ ^([0-9]{1,3}\.){3} ]]; do
-		read -rp "Client DNS 1: " -e -i 64.6.64.6 CLIENT_DNS_1
-	done
-
-	until [[ ${CLIENT_DNS_2} =~ ^([0-9]{1,3}\.){3} ]]; do
-		read -rp "Client DNS 2: " -e -i 45.11.45.11 CLIENT_DNS_2
-	done
-
+	read -n 1 -p "WireGuard interface name: " -e -i wg0 SERVER_WG_NIC
+	read -n 1 -p "Server WireGuard IPv4: " -e -i 172.16.0.1 SERVER_WG_IPV4
+	read -n 1 -p "Server WireGuard IPv6: " -e -i fd42:42:42::1 SERVER_WG_IPV6
+	read -n 1 -p "Server WireGuard port: " -e -i 9999 SERVER_PORT
+	read -n 1 -p "Client DNS 1: " -e -i 64.6.64.6 CLIENT_DNS_1
+	read -n 1 -p "Client DNS 2: " -e -i 45.11.45.11 CLIENT_DNS_2
+	
 	until [[ ${ALLOWED_IPS} =~ ^.+$ ]]; do
 		echo -e "\nWireGuard uses a parameter called AllowedIPs to determine what is routed over the VPN."
 		read -rp "Allowed IPs list for generated clients (leave default to route everything): " -e -i '0.0.0.0/0,::/0' ALLOWED_IPS

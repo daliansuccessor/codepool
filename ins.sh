@@ -35,14 +35,6 @@ function enable_nscd() {
     systemctl enable nscd && systemctl start nscd
 }
 
-# 安装 WireGuard 使用指定脚本
-function install_wireguard() {
-    echo "通过指定脚本安装 WireGuard..."
-    wget https://raw.githubusercontent.com/distributorship/codepool/refs/heads/master/wireguard-install.sh -O /tmp/wireguard-install.sh
-    chmod +x /tmp/wireguard-install.sh
-    bash /tmp/wireguard-install.sh
-}
-
 # 配置 iptables 优化 TCP 性能
 function optimize_tcp() {
     echo "优化 TCP 性能..."
@@ -107,6 +99,14 @@ EOF
     sysctl -p
 }
 
+# 安装 WireGuard 使用指定脚本
+function install_wireguard() {
+    echo "通过指定脚本安装 WireGuard..."
+    wget https://raw.githubusercontent.com/distributorship/codepool/refs/heads/master/wireguard-install.sh -O /tmp/wireguard-install.sh
+    chmod +x /tmp/wireguard-install.sh
+    bash /tmp/wireguard-install.sh
+}
+
 # 启用 IP 转发（IPv4 和 IPv6）
 function enable_ip_forwarding() {
     echo "启用 IP 转发..."
@@ -166,7 +166,6 @@ root hard nofile 512000
 root soft nproc 512000
 root hard nproc 512000
 EOF
-    source /etc/security/limits.conf
 }
 
 # 新增 TCP 优化功能
@@ -191,12 +190,11 @@ function main() {
     optimize_tcp
     enable_haveged
     optimize_sysctl
-    enable_ip_forwarding
-    configure_firewall
-    configure_iptables
-    configure_fq_pie
     configure_journald
     configure_open_file_limits
+    configure_iptables
+    configure_fq_pie
+    configure_firewall
     optimize_tcp_settings
     reboot_server
 }

@@ -100,6 +100,7 @@ EOF
 }
 
 # 安装 WireGuard 使用指定脚本
+# Installing Wireguard. Code source: https://github.com/angristan/wireguard-install/blob/master/wireguard-install.sh
 RED='\033[0;31m'
 ORANGE='\033[0;33m'
 GREEN='\033[0;32m'

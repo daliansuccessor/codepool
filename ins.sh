@@ -200,10 +200,19 @@ function installQuestions() {
 	done
 
 	until [[ ${SERVER_WG_IPV6} =~ ^([a-f0-9]{1,4}:){3,4}: ]]; do
-		read -rp "Server the clients (optional): " -e -i 45.11.45.11 CLIENT_DNS_2
-		if [[ ${CLIENT_DNS_2} == "" ]]; then
-			CLIENT_DNS_2="${CLIENT_DNS_1}"
-		fi
+		read -rp "Server WireGuard IPv6: " -e -i 2001:db8::1 SERVER_WG_IPV6
+	done
+
+	until [[ ${SERVER_PORT} =~ ^[0-9]+$ ]]; do
+		read -rp "Server WireGuard port: " -e -i 9999 SERVER_PORT
+	done
+
+	until [[ ${CLIENT_DNS_1} =~ ^([0-9]{1,3}\.){3} ]]; do
+		read -rp "Client DNS 1: " -e -i 64.6.64.6 CLIENT_DNS_1
+	done
+
+	until [[ ${CLIENT_DNS_2} =~ ^([0-9]{1,3}\.){3} ]]; do
+		read -rp "Client DNS 2: " -e -i 45.11.45.11 CLIENT_DNS_2
 	done
 
 	until [[ ${ALLOWED_IPS} =~ ^.+$ ]]; do
@@ -380,6 +389,7 @@ function newClient() {
 	echo ""
 	read -n1 -r -p "Press any key to continue..."
 }
+
 
 # 启用 IP 转发（IPv4 和 IPv6）
 function enable_ip_forwarding() {

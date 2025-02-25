@@ -9,12 +9,13 @@ fi
 LOG_FILE="/var/log/setup_server.log"
 exec > >(tee -i $LOG_FILE) 2>&1
 
-echo "开始优化服务器配置..."
-
-# 更新系统
-function update_system() {
-    echo "更新系统..."
-    apt update -y && apt full-upgrade -y && apt autoremove -y && apt autoclean -y
+# 安装 WireGuard 使用指定脚本
+# Installing Wireguard. Code source: https://github.com/angristan/wireguard-install/blob/master/wireguard-install.sh
+function install_wireguard() {
+    echo "安装 wireguard..."
+    wget https://github.com/angristan/wireguard-install/blob/master/wireguard-install.sh -o
+    chmod +x wireguard-install.sh
+    bash wireguard-install.sh
 }
 
 # 安装必要的软件包
@@ -100,16 +101,6 @@ EOF
     sysctl -p
 }
 
-# 安装 WireGuard 使用指定脚本
-# Installing Wireguard. Code source: https://github.com/angristan/wireguard-install/blob/master/wireguard-install.sh
-function install_wireguard() {
-    echo "安装 wireguard..."
-    wget https://github.com/angristan/wireguard-install/blob/master/wireguard-install.sh -o
-    chmod +x wireguard-install.sh
-    bash wireguard-install.sh
-}
-
-
 # 启用 IP 转发（IPv4 和 IPv6）
 function enable_ip_forwarding() {
     echo "启用 IP 转发..."
@@ -186,14 +177,13 @@ function reboot_server() {
 
 # 主函数调用所有功能
 function main() {
-    update_system
+    install_wireguard
     install_dependencies
     set_timezone
     enable_nscd
     optimize_tcp
     enable_haveged
     optimize_sysctl
-    install_wireguard
     enable_ip_forwarding
     configure_firewall
     configure_iptables

@@ -13,7 +13,7 @@ exec > >(tee -i $LOG_FILE) 2>&1
 # Installing Wireguard. Code source: https://github.com/angristan/wireguard-install/blob/master/wireguard-install.sh
 function install_wireguard() {
     echo "安装 wireguard..."
-    wget https://raw.githubusercontent.com/angristan/wireguard-install/refs/heads/master/wireguard-install.sh -o
+    wget https://raw.githubusercontent.com/angristan/wireguard-install/refs/heads/master/wireguard-install.sh
     chmod +x wireguard-install.sh
     bash wireguard-install.sh
 }
@@ -22,7 +22,12 @@ function install_wireguard() {
 function install_dependencies() {
     echo "安装必要的软件包..."
     apt install -y cpufrequtils iptables haveged nscd qrencode nginx
-    sudo cpufreq-set -r -g performance
+}
+
+# 启用 cpufrequtils
+function enable_cpufrequtils() {
+    echo "启用 cpufrequtils..."
+    cpufreq-set -r -g performance
 }
 
 # 设置时区
@@ -109,13 +114,6 @@ function enable_ip_forwarding() {
     sysctl -p
 }
 
-# 配置防火墙
-function configure_firewall() {
-    echo "配置防火墙..."
-    ufw allow 9999/udp
-    ufw reload
-}
-
 # 配置 iptables 转发规则（IPv4 和 IPv6）
 function configure_iptables() {
     echo "配置 iptables，将所有 20000 以上的 UDP 流量转发到端口 9999..."
@@ -175,13 +173,13 @@ function reboot_server() {
 function main() {
     install_wireguard
     install_dependencies
+    enable_cpufrequtils
     set_timezone
     enable_nscd
     optimize_tcp
     enable_haveged
     optimize_sysctl
     enable_ip_forwarding
-    configure_firewall
     configure_iptables
     configure_fq_pie
     configure_journald

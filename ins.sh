@@ -13,7 +13,7 @@ exec > >(tee -i $LOG_FILE) 2>&1
 # Installing Wireguard. Code source: https://github.com/angristan/wireguard-install/blob/master/wireguard-install.sh
 function install_wireguard() {
     echo "安装 wireguard..."
-    wget https://github.com/angristan/wireguard-install/blob/master/wireguard-install.sh -o
+    wget https://raw.githubusercontent.com/angristan/wireguard-install/refs/heads/master/wireguard-install.sh -o
     chmod +x wireguard-install.sh
     bash wireguard-install.sh
 }

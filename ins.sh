@@ -126,13 +126,9 @@ function configure_iptables() {
 # 配置 fq_pie 队列规则
 function configure_fq_pie() {
     echo "配置 fq_pie 队列规则..."
-
-    # 动态获取所有接口并配置 fq_pie
-    for interface in $(ip link | grep -o '^[0-9]*: \w*'); do
-        if [[ $interface != "lo:"* ]]; then
-            tc qdisc add dev $interface root fq_pie 2>/dev/null || echo "警告：无法为 $interface 配置 fq_pie，可能设备未启用"
-        fi
-    done
+    tc qdisc add dev wg0 root fq_pie
+    tc qdisc add dev ens5 root fq_pie
+    tc qdisc add dev eth0 root fq_pie
 }
 
 # 配置系统日志限制

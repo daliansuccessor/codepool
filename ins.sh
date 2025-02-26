@@ -22,7 +22,7 @@ function install_wireguard() {
 function install_dependencies() {
     echo "安装必要的软件包..."
     apt install -y cpufrequtils iptables haveged nscd qrencode nginx
-    cpufreq-set -r -g performance
+    sudo cpufreq-set -r -g performance
 }
 
 # 设置时区
@@ -46,7 +46,7 @@ function optimize_tcp() {
 # 启用 haveged 服务
 function enable_haveged() {
     echo "启用 haveged 服务..."
-    systemctl enable --now haveged
+    sudo systemctl enable --now haveged
 }
 
 # 写入内核参数优化配置到 /etc/sysctl.conf

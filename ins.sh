@@ -27,7 +27,7 @@ function install_dependencies() {
 # 启用 cpufrequtils
 function enable_cpufrequtils() {
     echo "启用 cpufrequtils..."
-    cpufreq-set -r -g performance
+    sudo cpufreq-set -r -g performance
 }
 
 # 设置时区
